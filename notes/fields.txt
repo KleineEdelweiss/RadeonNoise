@@ -1,0 +1,39 @@
+power -- Don't use
+subsystem -- Don't use
+uevent -- Don't use
+
+----
+device -- Has important device parameters:
+-pp_dpm_force_performance_level -- "manual" or "auto" (GPU core clock)
+-pp_dpm_sclk -- Current GPU clock setting (when read, lists each state, with a '*' on current; when written, put the state ID -- number, preceding ':')
+-pp_dpm_mclk -- Current GPU VRAM setting
+-mem_info_vram_total -- Total VRAM on card
+-mem_info_vram_used -- Total VRAM currently in use???
+-mem_busy_percent -- VRAM percentage used
+-gpu_busy_percent -- Percentage use of GPU processing
+---
+
+-fan1_enable -- Turn fan on/off
+-fan1_input -- Current fan speed
+-fan1_max -- Maximum fan speed
+-fan1_min -- Minimum fan speed
+-fan1_target -- Also current fan speed???
+-freq1_input -- Current GPU clock speed
+-freq1_label -- Should be "sclk" (core) on a single-processor GPU
+-freq2_input -- Current VRAM clock speed
+-freq2_label -- Should be "mclk" (VRAM) on a single-processor GPU
+-in0_input -- Current graphics voltage, in millivolts
+-in0_label -- "vddgfx", if it's a GPU
+-name -- Will say "amdgpu", if it's a Radeon card
+-power1_average -- Average GPU power usage, since last boot (micro-watts, for some ungodly reason)
+-power1_cap -- Current GPU power 
+-power1_cap_max -- Max GPU power
+-power1_cap_min -- Min GPU power
+-pwm1 -- Current fan setting (0-255)
+-pwm1_enable -- 0 (false), if fans automatic; 1 (true), if manual
+-pwm1_max -- Max fan setting (255)
+-pwm1_min -- Min fan setting (0)
+-temp1_crit -- Max temp GPU should reach (in milli-degrees Celsius... also for some weird reason, though less weird)
+-temp1_crit_hyst -- Absolute Zero, or something
+-temp1_input -- Current temperature
+-temp1_label -- Name of temp sensors, seems to be "edge"
