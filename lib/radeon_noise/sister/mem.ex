@@ -18,6 +18,7 @@ defmodule RadeonNoise.Sister.Mem do
   # File: device/mem_busy_percent
   def usage(card) do
     Gene.read("#{card}/device/mem_busy_percent")
+    |> (fn x -> "#{x}%" end).()
   end
 
   # Read the VRAM speed
