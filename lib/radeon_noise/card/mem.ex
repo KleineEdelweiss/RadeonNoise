@@ -1,6 +1,6 @@
-defmodule RadeonNoise.Sister.Mem do
+defmodule RadeonNoise.Card.Mem do
   # This submodule is for the GPU memory
-  # functions of the Sister (card) module
+  # functions of the Card module
   alias String, as: Str
   alias RadeonNoise.Gene
 

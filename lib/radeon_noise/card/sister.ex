@@ -1,4 +1,4 @@
-defmodule RadeonNoise.Sister do
+defmodule RadeonNoise.Card do
   # This module represents an individual graphics card
   alias String, as: Str
   alias RadeonNoise.Gene

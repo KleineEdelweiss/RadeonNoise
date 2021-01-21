@@ -1,6 +1,6 @@
-defmodule RadeonNoise.Sister.Proc do
+defmodule RadeonNoise.Card.Proc do
   # This submodule is for the GPU core
-  # functions of the Sister (card) module
+  # functions of the Card module
   alias String, as: Str
   alias RadeonNoise.Gene
 
