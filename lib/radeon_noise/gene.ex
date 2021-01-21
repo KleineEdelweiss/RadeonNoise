@@ -1,5 +1,5 @@
 defmodule RadeonNoise.Gene do
-  # This module represents the core
+  # This module represents the core, general-purpose
   # operations that can be shared between
   # various submodules.
   alias String, as: Str
