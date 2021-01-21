@@ -1,13 +1,19 @@
 defmodule RadeonNoise.Card do
-  # This module represents an individual graphics card
+  @moduledoc """
+    This module represents an individual graphics card
+  """
   alias String, as: Str
   alias RadeonNoise.Gene
 
-  # Return some known variables
+  @doc """
+    Return some known variables
+  """
   def basedir, do: "/sys/class/hwmon/"
 
-  # Authenticate user -- only root can modify
-  # GPU driver settings
+  @doc """
+    Authenticate user -- only root can modify
+    GPU driver settings
+  """
   def authenticate do
     {who, _} = System.cmd("whoami", [])
     user = Str.trim(who)
@@ -17,8 +23,10 @@ defmodule RadeonNoise.Card do
     end
   end
 
-  # Enumerate the GPUs in the system, return them
-  # as a list
+  @doc """
+    Enumerate the GPUs in the system, return them
+    as a list
+  """
   def enumerate do
     bd = basedir()
     case authenticate() do
@@ -38,8 +46,10 @@ defmodule RadeonNoise.Card do
     end
   end
 
-  # Get the transfer speed of the PCIe slot
-  # File: device/pp_dpm_pcie
+  @doc """
+    Get the transfer speed of the PCIe slot
+    File: device/pp_dpm_pcie
+  """
   def pcie_speed(card) do
     modes = Str.split(Str.trim(File.read!("#{card}/device/pp_dpm_pcie")), "\n")
     
@@ -54,6 +64,4 @@ defmodule RadeonNoise.Card do
     
     %{card: (hd item), iface_speed: (hd iface_speed), tx_rate: tx_rate}
   end
-
-
 end

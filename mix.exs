@@ -10,33 +10,38 @@ defmodule RadeonNoise.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
-      source_url: "https://github.com/KleineEdelweiss/RadeonNoise"
+      source_url: github_link(),
+      description: description(),
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:ex_doc, "~> 0.23", only: :dev, runtime: false},
     ]
   end
   
   defp description() do
-    "'Radeon Noise' is going to be a supervisory server to handle Radeon graphics on Linux, acting as an API layer through the amdgpu driver. The naming scheme is a play on the Index/Railgun/Accelerator franchise, by Kazuma Kamachi."
+    "'Radeon Noise' is going to be a supervisory server to handle Radeon graphics on Linux, acting as an API layer through the amdgpu driver. The name is a play on the Index/Railgun/Accelerator franchise, by Kazuma Kamachi."
   end
   
   defp package() do
     [
+      maintainers: ["KleineEdelweiss"],
       licenses: ["LGPL-3.0-only"],
-      links: %{"GitHub" => "https://github.com/KleineEdelweiss/RadeonNoise"}
+      links: %{"GitHub" => github_link()},
     ]
+  end
+  
+  defp github_link() do
+    "https://github.com/KleineEdelweiss/RadeonNoise"
   end
 end
