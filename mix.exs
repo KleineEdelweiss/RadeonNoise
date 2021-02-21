@@ -26,6 +26,7 @@ defmodule RadeonNoise.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.23", only: :dev, runtime: false},
+      {:json, "~> 1.4"},
     ]
   end
   
